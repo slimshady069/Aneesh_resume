@@ -1264,19 +1264,44 @@ footer {
 .hero-buttons {
     display: flex;
     gap: 1rem;
-    justify-content: center;
     margin-top: 2rem;
 }
 
-.cta-button.secondary {
-    background: transparent;
+.hero-buttons .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons .cta-button i {
+    font-size: 1.1rem;
+}
+
+.hero-buttons .cta-button.secondary {
+    background-color: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
 }
 
-.cta-button.secondary:hover {
-    background: var(--primary-color);
+.hero-buttons .cta-button.secondary:hover {
+    background-color: var(--primary-color);
     color: white;
+}
+
+/* Dark mode adjustments */
+.dark-mode .hero-buttons .cta-button.secondary {
+    border-color: var(--dark-text);
+    color: var(--dark-text);
+}
+
+.dark-mode .hero-buttons .cta-button.secondary:hover {
+    background-color: var(--dark-text);
+    color: var(--dark-bg);
 }
 
 /* Responsive Timeline */
