@@ -843,29 +843,51 @@ footer {
 }
 
 /* Blog Section */
+.blog {
+    padding: 80px 20px;
+    background-color: white;
+}
+
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
 .blog-card {
     background: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
-.blog-card img {
+.blog-image {
+    position: relative;
+    padding-top: 60%;
+    overflow: hidden;
+}
+
+.blog-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
 }
 
 .blog-content {
@@ -873,19 +895,93 @@ footer {
 }
 
 .blog-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.blog-date {
+    color: #666;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
+.blog-excerpt {
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
 .read-more {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--primary-color);
     text-decoration: none;
-    margin-top: 1rem;
     font-weight: 500;
+    transition: gap 0.3s ease;
 }
 
 .read-more:hover {
-    text-decoration: underline;
+    gap: 0.8rem;
+}
+
+.blog-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--light-bg);
+    border-radius: 10px;
+}
+
+.blog-cta p {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .blog {
+    background-color: var(--dark-bg);
+}
+
+.dark-mode .blog-card {
+    background: var(--dark-bg);
+}
+
+.dark-mode .blog-content h3 {
+    color: var(--dark-text);
+}
+
+.dark-mode .blog-date {
+    color: #aaa;
+}
+
+.dark-mode .blog-excerpt {
+    color: var(--dark-text);
+}
+
+.dark-mode .blog-cta {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .blog-cta p {
+    color: var(--dark-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-content {
+        padding: 1rem;
+    }
+    
+    .blog-cta {
+        padding: 1.5rem;
+    }
 }
 
 /* Contact Section */
