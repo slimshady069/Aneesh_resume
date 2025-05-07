@@ -613,11 +613,24 @@ footer {
     transform: scale(1.1);
 }
 
-/* Testimonials Section */
+/* Testimonials Section Enhancement */
 .testimonials {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     padding: 6rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.1;
 }
 
 .testimonial-slider {
@@ -628,12 +641,40 @@ footer {
 
 .testimonial-slide {
     text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .testimonial-content {
     font-size: 1.2rem;
     line-height: 1.8;
     margin-bottom: 2rem;
+    position: relative;
+}
+
+.testimonial-content::before,
+.testimonial-content::after {
+    content: '"';
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+}
+
+.testimonial-content::before {
+    top: -20px;
+    left: -20px;
+}
+
+.testimonial-content::after {
+    bottom: -40px;
+    right: -20px;
 }
 
 .testimonial-author {
@@ -643,21 +684,159 @@ footer {
     gap: 1rem;
 }
 
-.testimonial-author img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.testimonial-author h4 {
+.author-info h4 {
     margin: 0;
     font-size: 1.1rem;
+    color: white;
 }
 
-.testimonial-author p {
+.author-info p {
     margin: 0;
     opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Enhanced Contact Form */
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    outline: none;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 1rem;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:valid ~ label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+.focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus ~ .focus-border,
+.form-group textarea:focus ~ .focus-border {
+    width: 100%;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.submit-btn i {
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Contact Info Enhancement */
+.info-content {
+    margin-left: 1rem;
+}
+
+.info-content h3 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.info-content p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .contact-form {
+    background: var(--dark-bg);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    color: var(--dark-text);
+    border-bottom-color: #444;
+}
+
+.dark-mode .form-group label {
+    color: #888;
+}
+
+.dark-mode .info-content p {
+    color: var(--dark-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonial-content {
+        font-size: 1rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
 }
 
 /* Blog Section */
@@ -1137,4 +1316,306 @@ footer {
 
 .dark-mode .skill-item i {
     color: var(--dark-primary);
+}
+
+/* Certifications Section */
+.certifications {
+    padding: 80px 20px;
+    background-color: #f8f9fa;
+}
+
+.certifications-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.certification-item i {
+    font-size: 2.5rem;
+    color: #007bff;
+}
+
+.certification-details {
+    flex: 1;
+}
+
+.certification-details h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.certification-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.certification-date {
+    font-style: italic;
+    color: #888;
+}
+
+.certification-details ul {
+    margin: 15px 0 0 0;
+    padding-left: 20px;
+}
+
+.certification-details li {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Volunteering Section */
+.volunteering {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.volunteering-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.volunteering-item {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.volunteering-item h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.volunteering-item h4 {
+    margin: 0 0 15px 0;
+    color: #666;
+}
+
+.volunteering-date {
+    font-style: italic;
+    color: #888;
+    margin: 5px 0 15px 0;
+}
+
+.volunteering-item ul {
+    margin: 15px 0 0 0;
+    padding-left: 20px;
+}
+
+.volunteering-item li {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 768px) {
+    .certification-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .certification-item i {
+        margin-bottom: 15px;
+    }
+
+    .certification-details ul {
+        text-align: left;
+    }
+}
+
+/* Skill Level Styling */
+.skill-level {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Projects Section Enhancement */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.project-date {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.project-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-content li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+}
+
+.project-content li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .project-item {
+    background: var(--dark-bg);
+}
+
+.dark-mode .project-content h3 {
+    color: var(--dark-primary);
+}
+
+.dark-mode .project-content li {
+    color: var(--dark-text);
+}
+
+.dark-mode .project-date {
+    color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-content {
+        padding: 1.5rem;
+    }
+}
+
+/* Insurance Expertise Section */
+.insurance-expertise {
+    padding: 80px 20px;
+    background-color: var(--light-bg);
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.expertise-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.expertise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.expertise-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.expertise-item h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.expertise-item ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.expertise-item li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+}
+
+.expertise-item li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .insurance-expertise {
+    background-color: var(--dark-bg);
+}
+
+.dark-mode .expertise-item {
+    background: var(--dark-bg);
+}
+
+.dark-mode .expertise-item h3 {
+    color: var(--dark-text);
+}
+
+.dark-mode .expertise-item li {
+    color: var(--dark-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .expertise-item {
+        padding: 1.5rem;
+    }
 } 
