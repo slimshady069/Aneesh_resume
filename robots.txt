@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://aneeshmahajan.com/sitemap.xml 
+Sitemap: https://aneeshmahajan.netlify.app/sitemap.xml 
