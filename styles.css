@@ -1,3 +1,58 @@
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted var(--primary-color);
+    cursor: help;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--secondary-color) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Dark mode adjustments for tooltip */
+.dark-mode .tooltip {
+    border-bottom-color: var(--dark-primary);
+}
+
+.dark-mode .tooltip .tooltiptext {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .tooltip .tooltiptext::after {
+    border-color: var(--dark-bg) transparent transparent transparent;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -399,16 +454,125 @@ footer {
     --secondary-color: #1a1a1a;
     --text-color: #ffffff;
     --light-bg: #2d2d2d;
+    --dark-bg: #1a1a1a;
+    --dark-text: #ffffff;
+    --dark-primary: #4a90e2;
 }
 
 .dark-mode body {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
-.dark-mode .service-card {
-    background-color: var(--light-bg);
-    color: var(--text-color);
+.dark-mode .service-card,
+.dark-mode .benefit-card,
+.dark-mode .testimonial-card,
+.dark-mode .calculator-results,
+.dark-mode .resource-card,
+.dark-mode .claim-step,
+.dark-mode .premium-results {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .comparison-table th {
+    background-color: var(--dark-primary);
+    color: var(--dark-text);
+}
+
+.dark-mode .comparison-table td {
+    border-color: #444;
+    color: var(--dark-text);
+}
+
+.dark-mode .comparison-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .comparison-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .claim-step h3,
+.dark-mode .premium-results h3,
+.dark-mode .calculator-results h3 {
+    color: var(--dark-text);
+}
+
+.dark-mode .claim-step p,
+.dark-mode .premium-results p,
+.dark-mode .calculator-note,
+.dark-mode .resource-card a {
+    color: var(--dark-text);
+    opacity: 0.9;
+}
+
+.dark-mode .premium-calculator-container {
+    background: var(--dark-bg);
+}
+
+.dark-mode .premium-form input,
+.dark-mode .premium-form select {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: #444;
+}
+
+.dark-mode .premium-form label {
+    color: var(--dark-text);
+}
+
+.dark-mode .result-item {
+    color: var(--dark-text);
+    border-bottom-color: #444;
+}
+
+.dark-mode .calculator-note {
+    color: var(--dark-text);
+    opacity: 0.8;
+}
+
+.dark-mode .nav-links a {
+    color: var(--dark-text);
+}
+
+.dark-mode .logo {
+    color: var(--dark-text);
+}
+
+.dark-mode .hamburger {
+    color: var(--dark-text);
+}
+
+.dark-mode .broker-hero h1,
+.dark-mode .broker-hero p {
+    color: var(--dark-text);
+}
+
+.dark-mode .service-card h3,
+.dark-mode .benefit-card h3 {
+    color: var(--dark-text);
+}
+
+.dark-mode .service-card p,
+.dark-mode .benefit-card p {
+    color: var(--dark-text);
+    opacity: 0.9;
+}
+
+.dark-mode .service-card li,
+.dark-mode .benefit-card li {
+    color: var(--dark-text);
+    opacity: 0.9;
+}
+
+.dark-mode .service-btn {
+    background-color: var(--dark-primary);
+    color: var(--dark-text);
+}
+
+.dark-mode .service-btn:hover {
+    background-color: var(--primary-color);
 }
 
 .dark-mode-toggle {
@@ -2317,5 +2481,542 @@ img {
     .service-card,
     .benefit-card {
         padding: 1.5rem;
+    }
+}
+
+/* Broker Testimonials Section */
+.broker-testimonials {
+    padding: 80px 20px;
+    background-color: var(--light-bg);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-content {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-content i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    line-height: 1.6;
+    color: #555;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.author-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Insurance Calculator Section */
+.insurance-calculator {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.calculator-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.calculator-form label {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.calculator-form input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.calculator-btn {
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.calculator-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.calculator-results {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-results h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.calculator-note {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Insurance Resources Section */
+.insurance-resources {
+    padding: 80px 20px;
+    background-color: var(--light-bg);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resource-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+}
+
+.resource-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.resource-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.resource-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resource-card li {
+    margin: 0.8rem 0;
+}
+
+.resource-card a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resource-card a:hover {
+    color: var(--primary-color);
+}
+
+.resource-card a::before {
+    content: '→';
+    color: var(--primary-color);
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .testimonial-card,
+.dark-mode .calculator-results,
+.dark-mode .resource-card {
+    background: var(--dark-bg);
+}
+
+.dark-mode .testimonial-content p,
+.dark-mode .author-info p,
+.dark-mode .calculator-note,
+.dark-mode .resource-card a {
+    color: var(--dark-text);
+}
+
+.dark-mode .calculator-container {
+    background: var(--dark-bg);
+}
+
+.dark-mode .calculator-form input {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-card,
+    .resource-card {
+        padding: 1.5rem;
+    }
+    
+    .calculator-form,
+    .calculator-results {
+        padding: 1.5rem;
+    }
+}
+
+/* Insurance Comparison Section */
+.insurance-comparison {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.comparison-table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.comparison-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: var(--light-bg);
+}
+
+.comparison-table tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+/* Claims Process Section */
+.claims-process {
+    padding: 80px 20px;
+    background-color: var(--light-bg);
+}
+
+.claims-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.claim-step {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.claim-step:hover {
+    transform: translateY(-5px);
+}
+
+.claim-step .step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: 0 auto 1rem;
+}
+
+.claim-step h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.claim-step p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Premium Calculator Section */
+.premium-calculator {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.premium-calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.premium-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.premium-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.premium-form label {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.premium-form input,
+.premium-form select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.premium-results {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.premium-results h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .comparison-table th {
+    background-color: var(--dark-primary);
+}
+
+.dark-mode .comparison-table td {
+    border-color: #444;
+}
+
+.dark-mode .comparison-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .comparison-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .claim-step {
+    background: var(--dark-bg);
+}
+
+.dark-mode .claim-step h3 {
+    color: var(--dark-text);
+}
+
+.dark-mode .claim-step p {
+    color: var(--dark-text);
+}
+
+.dark-mode .premium-calculator-container {
+    background: var(--dark-bg);
+}
+
+.dark-mode .premium-form input,
+.dark-mode .premium-form select {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: #444;
+}
+
+.dark-mode .premium-results {
+    background: var(--dark-bg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .comparison-table th,
+    .comparison-table td {
+        padding: 1rem;
+    }
+    
+    .premium-calculator-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .claim-step {
+        padding: 1.5rem;
+    }
+}
+
+/* Fixed Contact Buttons */
+.fixed-contact-buttons {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1.5rem 2.5rem;
+    border-radius: 60px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(12px);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateX(-50%) translateY(100px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.fixed-contact-buttons:hover {
+    .fixed-contact-buttons:hover {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-contact-buttons {
+        bottom: 15px;
+        padding: 1rem;
+        border-radius: 20px;
+        width: 94%;
+    }
+
+    .fixed-contact-buttons .contact-btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .fixed-contact-buttons .contact-btn:hover {
+        transform: translateY(-2px) scale(1.01);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .fixed-contact-buttons .contact-btn:hover {
+        transform: none;
+    }
+
+    .fixed-contact-buttons .contact-btn:active {
+        transform: scale(0.98);
+    }
+
+    .fixed-contact-buttons .contact-btn i {
+        transform: none;
     }
 } 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insurance Broker Services - Aneesh Mahajan</title>
-    <meta name="description" content="Licensed HLLQP insurance broker providing comprehensive insurance solutions in Toronto. Specializing in life insurance, critical illness, and disability coverage.">
+    <meta name="description" content="Licensed HLLQP (Harmonized Life License Qualification Program) insurance broker providing comprehensive insurance solutions in Toronto. Specializing in life insurance, critical illness, and disability coverage.">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -33,7 +33,7 @@
         <section class="broker-hero">
             <div class="broker-hero-content">
                 <h1>Insurance Broker Services</h1>
-                <p>Licensed HLLQP broker providing personalized insurance solutions for your needs</p>
+                <p>Licensed <span class="tooltip">HLLQP<span class="tooltiptext">Harmonized Life License Qualification Program</span></span> broker providing personalized insurance solutions for your needs</p>
                 <a href="#contact" class="cta-button">Get a Free Quote</a>
             </div>
         </section>
@@ -160,7 +160,7 @@
                 <div class="benefit-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Licensed Professional</h3>
-                    <p>HLLQP licensed broker with extensive experience in insurance solutions.</p>
+                    <p>HLLQP (Harmonized Life License Qualification Program) licensed broker with extensive experience in insurance solutions.</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fas fa-handshake"></i>
@@ -176,6 +176,260 @@
                     <i class="fas fa-headset"></i>
                     <h3>Ongoing Support</h3>
                     <p>Continuous assistance and policy reviews to ensure your coverage remains optimal.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="broker-testimonials">
+            <h2>Client Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Aneesh helped me find the perfect life insurance policy that fits my family's needs and budget. His expertise and personalized approach made the process smooth and stress-free."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-1.jpg" alt="Sarah Chen">
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Life Insurance Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"The critical illness coverage Aneesh recommended has been a lifesaver. His thorough explanation of the policy and ongoing support have been invaluable."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-2.jpg" alt="Michael Thompson">
+                        <div class="author-info">
+                            <h4>Michael Thompson</h4>
+                            <p>Critical Illness Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"As a business owner, I needed comprehensive coverage for my company. Aneesh's expertise in business insurance helped me protect my most valuable assets."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-3.jpg" alt="Lisa Rodriguez">
+                        <div class="author-info">
+                            <h4>Lisa Rodriguez</h4>
+                            <p>Business Insurance Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="insurance-calculator">
+            <h2>Insurance Needs Calculator</h2>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="income">Annual Income</label>
+                        <input type="number" id="income" placeholder="Enter your annual income">
+                    </div>
+                    <div class="form-group">
+                        <label for="debts">Total Debts</label>
+                        <input type="number" id="debts" placeholder="Enter your total debts">
+                    </div>
+                    <div class="form-group">
+                        <label for="dependents">Number of Dependents</label>
+                        <input type="number" id="dependents" placeholder="Enter number of dependents">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Your Age</label>
+                        <input type="number" id="age" placeholder="Enter your age">
+                    </div>
+                    <button onclick="calculateInsurance()" class="calculator-btn">Calculate Coverage</button>
+                </div>
+                <div class="calculator-results">
+                    <h3>Recommended Coverage</h3>
+                    <div class="result-item">
+                        <span>Life Insurance:</span>
+                        <span id="life-coverage">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Critical Illness:</span>
+                        <span id="critical-coverage">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Disability Insurance:</span>
+                        <span id="disability-coverage">$0</span>
+                    </div>
+                    <p class="calculator-note">* This is an estimate. Contact us for a detailed analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="insurance-resources">
+            <h2>Insurance Education & Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Insurance Guides</h3>
+                    <ul>
+                        <li><a href="#">Understanding Life Insurance</a></li>
+                        <li><a href="#">Critical Illness Coverage Guide</a></li>
+                        <li><a href="#">Disability Insurance Basics</a></li>
+                        <li><a href="#">Investment & Retirement Planning</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Financial Tools</h3>
+                    <ul>
+                        <li><a href="#">Retirement Calculator</a></li>
+                        <li><a href="#">Mortgage Protection Calculator</a></li>
+                        <li><a href="#">Tax Planning Guide</a></li>
+                        <li><a href="#">Estate Planning Checklist</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Forms & Documents</h3>
+                    <ul>
+                        <li><a href="#">Insurance Application Forms</a></li>
+                        <li><a href="#">Policy Change Request</a></li>
+                        <li><a href="#">Claims Forms</a></li>
+                        <li><a href="#">Beneficiary Update Form</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>FAQ & Support</h3>
+                    <ul>
+                        <li><a href="#">Common Insurance Questions</a></li>
+                        <li><a href="#">Policy Renewal Guide</a></li>
+                        <li><a href="#">Claims Process Explained</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="insurance-comparison">
+            <h2>Insurance Plan Comparison</h2>
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Basic Plan</th>
+                            <th>Standard Plan</th>
+                            <th>Premium Plan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Life Insurance Coverage</td>
+                            <td>Up to $500,000</td>
+                            <td>Up to $1,000,000</td>
+                            <td>Up to $2,000,000</td>
+                        </tr>
+                        <tr>
+                            <td>Critical Illness Coverage</td>
+                            <td>Up to $100,000</td>
+                            <td>Up to $250,000</td>
+                            <td>Up to $500,000</td>
+                        </tr>
+                        <tr>
+                            <td>Disability Coverage</td>
+                            <td>60% of income</td>
+                            <td>70% of income</td>
+                            <td>80% of income</td>
+                        </tr>
+                        <tr>
+                            <td>Term Length</td>
+                            <td>10-20 years</td>
+                            <td>20-30 years</td>
+                            <td>30+ years</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Payment Options</td>
+                            <td>Monthly/Annual</td>
+                            <td>Monthly/Annual</td>
+                            <td>Monthly/Annual</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Benefits</td>
+                            <td>Basic coverage</td>
+                            <td>Extended coverage</td>
+                            <td>Comprehensive coverage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="claims-process">
+            <h2>Claims Process</h2>
+            <div class="claims-steps">
+                <div class="claim-step">
+                    <div class="step-number">1</div>
+                    <h3>Report the Claim</h3>
+                    <p>Contact us immediately to report your claim. We'll guide you through the initial process and required documentation.</p>
+                </div>
+                <div class="claim-step">
+                    <div class="step-number">2</div>
+                    <h3>Submit Documentation</h3>
+                    <p>Provide all necessary documentation including medical reports, bills, and any other relevant information.</p>
+                </div>
+                <div class="claim-step">
+                    <div class="step-number">3</div>
+                    <h3>Review Process</h3>
+                    <p>Our team will review your claim and documentation to ensure everything is in order.</p>
+                </div>
+                <div class="claim-step">
+                    <div class="step-number">4</div>
+                    <h3>Claim Settlement</h3>
+                    <p>Once approved, we'll process your claim and ensure you receive your benefits promptly.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="premium-calculator">
+            <h2>Premium Payment Calculator</h2>
+            <div class="premium-calculator-container">
+                <div class="premium-form">
+                    <div class="form-group">
+                        <label for="coverage-amount">Coverage Amount</label>
+                        <input type="number" id="coverage-amount" placeholder="Enter coverage amount">
+                    </div>
+                    <div class="form-group">
+                        <label for="term-length">Term Length (years)</label>
+                        <input type="number" id="term-length" placeholder="Enter term length">
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-frequency">Payment Frequency</label>
+                        <select id="payment-frequency">
+                            <option value="monthly">Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="semi-annual">Semi-Annual</option>
+                            <option value="annual">Annual</option>
+                        </select>
+                    </div>
+                    <button onclick="calculatePremium()" class="calculator-btn">Calculate Premium</button>
+                </div>
+                <div class="premium-results">
+                    <h3>Estimated Premium</h3>
+                    <div class="result-item">
+                        <span>Monthly Premium:</span>
+                        <span id="monthly-premium">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Quarterly Premium:</span>
+                        <span id="quarterly-premium">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Annual Premium:</span>
+                        <span id="annual-premium">$0</span>
+                    </div>
+                    <p class="calculator-note">* Premiums are estimates and may vary based on individual circumstances.</p>
                 </div>
             </div>
         </section>
@@ -275,6 +529,17 @@
         </div>
     </footer>
 
+    <div class="fixed-contact-buttons">
+        <a href="#contact" class="contact-btn primary">
+            <i class="fas fa-envelope"></i>
+            Get in Touch
+        </a>
+        <a href="resume.pdf" class="contact-btn secondary" download>
+            <i class="fas fa-download"></i>
+            Download Resume
+        </a>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         function toggleMobileMenu() {
@@ -300,6 +565,60 @@
                     this.reset();
                 }, 1500);
             });
+        }
+
+        // Insurance Calculator
+        function calculateInsurance() {
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const debts = parseFloat(document.getElementById('debts').value) || 0;
+            const dependents = parseInt(document.getElementById('dependents').value) || 0;
+            const age = parseInt(document.getElementById('age').value) || 0;
+
+            // Basic calculation formulas (these are simplified examples)
+            const lifeCoverage = Math.round(income * 10 + debts + (dependents * 50000));
+            const criticalCoverage = Math.round(income * 2);
+            const disabilityCoverage = Math.round(income * 0.7 * 12); // 70% of annual income
+
+            // Apply age factor
+            const ageFactor = age < 40 ? 1 : age < 50 ? 0.9 : age < 60 ? 0.8 : 0.7;
+            
+            // Update results
+            document.getElementById('life-coverage').textContent = formatCurrency(lifeCoverage * ageFactor);
+            document.getElementById('critical-coverage').textContent = formatCurrency(criticalCoverage * ageFactor);
+            document.getElementById('disability-coverage').textContent = formatCurrency(disabilityCoverage * ageFactor);
+        }
+
+        // Premium Calculator
+        function calculatePremium() {
+            const coverageAmount = parseFloat(document.getElementById('coverage-amount').value) || 0;
+            const termLength = parseInt(document.getElementById('term-length').value) || 0;
+            const paymentFrequency = document.getElementById('payment-frequency').value;
+
+            // Basic premium calculation (simplified example)
+            const baseRate = 0.05; // 5% of coverage amount per year
+            const annualPremium = coverageAmount * baseRate;
+            
+            // Apply term length factor
+            const termFactor = termLength < 10 ? 1.2 : termLength < 20 ? 1.1 : 1;
+            const adjustedAnnualPremium = annualPremium * termFactor;
+
+            // Calculate different payment frequencies
+            const monthlyPremium = adjustedAnnualPremium / 12;
+            const quarterlyPremium = adjustedAnnualPremium / 4;
+            
+            // Update results
+            document.getElementById('monthly-premium').textContent = formatCurrency(monthlyPremium);
+            document.getElementById('quarterly-premium').textContent = formatCurrency(quarterlyPremium);
+            document.getElementById('annual-premium').textContent = formatCurrency(adjustedAnnualPremium);
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-CA', {
+                style: 'currency',
+                currency: 'CAD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
         }
     </script>
 </body>
