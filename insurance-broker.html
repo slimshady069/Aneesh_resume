@@ -84,6 +84,34 @@
                     <a href="#contact" class="service-btn">Learn More</a>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-plane"></i>
+                    <h3>Travel Insurance</h3>
+                    <p>Comprehensive travel protection for your domestic and international trips.</p>
+                    <ul>
+                        <li>Emergency Medical Coverage</li>
+                        <li>Trip Cancellation/Interruption</li>
+                        <li>Baggage & Personal Effects</li>
+                        <li>Flight Accident Coverage</li>
+                        <li>24/7 Emergency Assistance</li>
+                        <li>COVID-19 Coverage</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-passport"></i>
+                    <h3>Super Visa Insurance</h3>
+                    <p>Specialized insurance solutions for parents and grandparents visiting Canada.</p>
+                    <ul>
+                        <li>Emergency Medical Coverage</li>
+                        <li>Hospitalization Benefits</li>
+                        <li>Prescription Medication</li>
+                        <li>Ambulance Services</li>
+                        <li>Dental Emergency Coverage</li>
+                        <li>Repatriation Benefits</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Learn More</a>
+                </div>
+                <div class="service-card">
                     <i class="fas fa-chart-line"></i>
                     <h3>Investment & Retirement</h3>
                     <p>Plan for your future with our comprehensive investment and retirement solutions.</p>
@@ -434,6 +462,306 @@
             </div>
         </section>
 
+        <section class="travel-calculator">
+            <h2>Travel Insurance Calculator</h2>
+            <div class="travel-calculator-container">
+                <div class="travel-form">
+                    <div class="form-group">
+                        <label for="trip-type">Trip Type</label>
+                        <select id="trip-type" required>
+                            <option value="single">Single Trip</option>
+                            <option value="multi">Multi-Trip</option>
+                            <option value="super-visa">Super Visa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <select id="destination" required>
+                            <option value="canada">Canada</option>
+                            <option value="usa">United States</option>
+                            <option value="caribbean">Caribbean & Mexico</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia">Asia</option>
+                            <option value="worldwide">Worldwide</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverage-level">Coverage Level</label>
+                        <select id="coverage-level" required>
+                            <option value="basic">Basic</option>
+                            <option value="standard">Standard</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-duration">Trip Duration (days)</label>
+                        <input type="number" id="trip-duration" min="1" max="365" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travelers">Number of Travelers</label>
+                        <input type="number" id="travelers" min="1" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="traveler-age">Age of Oldest Traveler</label>
+                        <input type="number" id="traveler-age" min="0" max="85" required>
+                    </div>
+                    <button onclick="calculateTravelInsurance()" class="calculator-btn">Calculate Premium</button>
+                </div>
+                <div class="travel-results">
+                    <h3>Estimated Premium</h3>
+                    <div class="result-item">
+                        <span>Total Premium:</span>
+                        <span id="travel-premium">$0</span>
+                    </div>
+                    <div class="coverage-details">
+                        <h4>Coverage Includes:</h4>
+                        <ul>
+                            <li>Emergency Medical: <span id="medical-coverage">$0</span></li>
+                            <li>Trip Cancellation: <span id="cancellation-coverage">$0</span></li>
+                            <li>Baggage Coverage: <span id="baggage-coverage">$0</span></li>
+                        </ul>
+                    </div>
+                    <p class="calculator-note">* Premiums are estimates and may vary based on individual circumstances.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="travel-faq">
+            <h2>Travel Insurance FAQ</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Common Questions</h3>
+                    <div class="faq-content">
+                        <div class="faq-question">
+                            <h4>When should I buy travel insurance?</h4>
+                            <p>It's best to purchase travel insurance as soon as you book your trip. This ensures you're covered for trip cancellation and any pre-existing conditions.</p>
+                        </div>
+                        <div class="faq-question">
+                            <h4>What's covered under emergency medical?</h4>
+                            <p>Emergency medical coverage includes hospitalization, physician services, prescription drugs, ambulance services, and emergency dental treatment.</p>
+                        </div>
+                        <div class="faq-question">
+                            <h4>Are pre-existing conditions covered?</h4>
+                            <p>Coverage for pre-existing conditions varies by plan. Our Standard and Premium plans offer coverage for stable pre-existing conditions.</p>
+                        </div>
+                        <div class="faq-question">
+                            <h4>What's the difference between single and multi-trip insurance?</h4>
+                            <p>Single-trip insurance covers one specific trip, while multi-trip insurance covers multiple trips within a year, up to a specified duration per trip.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>Claims & Coverage</h3>
+                    <div class="faq-content">
+                        <div class="faq-question">
+                            <h4>How do I file a claim?</h4>
+                            <p>You can file a claim online through our portal or contact our 24/7 assistance line. Keep all receipts and documentation for your claim.</p>
+                        </div>
+                        <div class="faq-question">
+                            <h4>What's not covered?</h4>
+                            <p>Common exclusions include: non-emergency medical care, travel to high-risk areas, extreme sports (unless specified), and pre-existing conditions (in Basic plan).</p>
+                        </div>
+                        <div class="faq-question">
+                            <h4>How long does it take to process a claim?</h4>
+                            <p>Most claims are processed within 5-10 business days, depending on the complexity and documentation provided.</p>
+                        </div>
+                        <div class="faq-question">
+                            <h4>Can I extend my coverage while traveling?</h4>
+                            <p>Yes, you can extend your coverage while traveling, subject to eligibility and additional premium payment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="coverage-details">
+            <h2>Detailed Coverage Information</h2>
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <h3>Travel Insurance Coverage</h3>
+                    <div class="coverage-item">
+                        <h4>Emergency Medical</h4>
+                        <ul>
+                            <li>Hospitalization and medical expenses</li>
+                            <li>Emergency dental treatment</li>
+                            <li>Ambulance services</li>
+                            <li>Medical evacuation</li>
+                            <li>Prescription medication</li>
+                            <li>COVID-19 related expenses</li>
+                            <li>Emergency medical transportation</li>
+                            <li>Return of remains</li>
+                        </ul>
+                    </div>
+                    <div class="coverage-item">
+                        <h4>Trip Protection</h4>
+                        <ul>
+                            <li>Trip cancellation (up to 100% of trip cost)</li>
+                            <li>Trip interruption</li>
+                            <li>Flight delay coverage</li>
+                            <li>Lost or delayed baggage</li>
+                            <li>Travel document replacement</li>
+                            <li>Missed connection coverage</li>
+                            <li>Travel accident coverage</li>
+                            <li>Baggage delay compensation</li>
+                        </ul>
+                    </div>
+                    <div class="coverage-item">
+                        <h4>Additional Benefits</h4>
+                        <ul>
+                            <li>24/7 emergency assistance</li>
+                            <li>Legal assistance</li>
+                            <li>Travel concierge services</li>
+                            <li>Identity theft protection</li>
+                            <li>Pet care coverage</li>
+                            <li>Home security monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="coverage-card">
+                    <h3>Super Visa Insurance Coverage</h3>
+                    <div class="coverage-item">
+                        <h4>Medical Benefits</h4>
+                        <ul>
+                            <li>Hospitalization (semi-private room)</li>
+                            <li>Physician services</li>
+                            <li>Diagnostic services</li>
+                            <li>Ambulance services</li>
+                            <li>Prescription drugs</li>
+                            <li>Dental emergency</li>
+                            <li>Medical equipment rental</li>
+                            <li>Paramedical services</li>
+                        </ul>
+                    </div>
+                    <div class="coverage-item">
+                        <h4>Additional Benefits</h4>
+                        <ul>
+                            <li>Repatriation of remains</li>
+                            <li>Return of dependent children</li>
+                            <li>Accidental death and dismemberment</li>
+                            <li>24/7 emergency assistance</li>
+                            <li>Pre-existing condition coverage</li>
+                            <li>Medical transportation</li>
+                            <li>Family emergency travel</li>
+                            <li>Companion accommodation</li>
+                        </ul>
+                    </div>
+                    <div class="coverage-item">
+                        <h4>Special Features</h4>
+                        <ul>
+                            <li>Guaranteed renewable</li>
+                            <li>No medical questionnaire required</li>
+                            <li>Direct billing with hospitals</li>
+                            <li>Multi-language support</li>
+                            <li>Extended stay options</li>
+                            <li>Family coverage discounts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="plan-comparison">
+            <h2>Travel Insurance Plan Comparison</h2>
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Basic Plan</th>
+                            <th>Standard Plan</th>
+                            <th>Premium Plan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Emergency Medical</td>
+                            <td>$50,000</td>
+                            <td>$100,000</td>
+                            <td>$200,000</td>
+                        </tr>
+                        <tr>
+                            <td>Trip Cancellation</td>
+                            <td>$2,500</td>
+                            <td>$5,000</td>
+                            <td>$10,000</td>
+                        </tr>
+                        <tr>
+                            <td>Baggage Coverage</td>
+                            <td>$1,000</td>
+                            <td>$2,000</td>
+                            <td>$3,000</td>
+                        </tr>
+                        <tr>
+                            <td>Flight Delay</td>
+                            <td>4 hours</td>
+                            <td>3 hours</td>
+                            <td>2 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Pre-existing Conditions</td>
+                            <td>Not Covered</td>
+                            <td>Stable Conditions</td>
+                            <td>Comprehensive</td>
+                        </tr>
+                        <tr>
+                            <td>Sports Coverage</td>
+                            <td>Basic</td>
+                            <td>Standard</td>
+                            <td>Adventure</td>
+                        </tr>
+                        <tr>
+                            <td>24/7 Assistance</td>
+                            <td>Basic</td>
+                            <td>Enhanced</td>
+                            <td>Premium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="destination-info">
+            <h2>Destination-Specific Information</h2>
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <h3>Canada & USA</h3>
+                    <ul>
+                        <li>Lower premium rates</li>
+                        <li>Extended coverage periods</li>
+                        <li>Family plan discounts</li>
+                        <li>Cross-border medical coverage</li>
+                    </ul>
+                </div>
+                <div class="destination-card">
+                    <h3>Caribbean & Mexico</h3>
+                    <ul>
+                        <li>Special hurricane coverage</li>
+                        <li>Medical evacuation included</li>
+                        <li>Adventure sports coverage</li>
+                        <li>Extended trip duration options</li>
+                    </ul>
+                </div>
+                <div class="destination-card">
+                    <h3>Europe</h3>
+                    <ul>
+                        <li>Schengen visa compliance</li>
+                        <li>Multi-country coverage</li>
+                        <li>Extended medical benefits</li>
+                        <li>Travel document protection</li>
+                    </ul>
+                </div>
+                <div class="destination-card">
+                    <h3>Asia</h3>
+                    <ul>
+                        <li>Specialized medical coverage</li>
+                        <li>Extended trip duration</li>
+                        <li>Adventure sports options</li>
+                        <li>Emergency evacuation included</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="contact">
             <h2>Get Your Free Insurance Quote</h2>
             <div class="contact-container">
@@ -482,6 +810,11 @@
                             <option value="life">Life Insurance</option>
                             <option value="critical_illness">Critical Illness Insurance</option>
                             <option value="disability">Disability Insurance</option>
+                            <option value="travel">Travel Insurance</option>
+                            <option value="super_visa">Super Visa Insurance</option>
+                            <option value="investment">Investment & Retirement</option>
+                            <option value="mortgage">Mortgage Protection</option>
+                            <option value="business">Business Insurance</option>
                             <option value="other">Other Insurance Needs</option>
                         </select>
                         <span class="focus-border"></span>
@@ -541,75 +874,158 @@
     </div>
 
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const hamburger = document.querySelector('.hamburger i');
-            navLinks.classList.toggle('show');
-            hamburger.classList.toggle('fa-bars');
-            hamburger.classList.toggle('fa-times');
-        }
-
-        // Form Submission
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const submitBtn = this.querySelector('.submit-btn');
-                submitBtn.classList.add('loading');
-                
-                // Simulate form submission
-                setTimeout(() => {
-                    submitBtn.classList.remove('loading');
-                    alert('Thank you for your message! I will get back to you soon.');
-                    this.reset();
-                }, 1500);
-            });
-        }
-
-        // Insurance Calculator
         function calculateInsurance() {
+            // Get input values
             const income = parseFloat(document.getElementById('income').value) || 0;
             const debts = parseFloat(document.getElementById('debts').value) || 0;
             const dependents = parseInt(document.getElementById('dependents').value) || 0;
             const age = parseInt(document.getElementById('age').value) || 0;
 
-            // Basic calculation formulas (these are simplified examples)
-            const lifeCoverage = Math.round(income * 10 + debts + (dependents * 50000));
-            const criticalCoverage = Math.round(income * 2);
-            const disabilityCoverage = Math.round(income * 0.7 * 12); // 70% of annual income
+            // Validate inputs
+            if (income < 0 || debts < 0 || dependents < 0 || age < 0) {
+                alert('Please enter valid positive numbers for all fields.');
+                return;
+            }
 
-            // Apply age factor
+            if (age < 18 || age > 75) {
+                alert('Age must be between 18 and 75 years.');
+                return;
+            }
+
+            // Calculate age factor (reduces coverage as age increases)
             const ageFactor = age < 40 ? 1 : age < 50 ? 0.9 : age < 60 ? 0.8 : 0.7;
-            
-            // Update results
-            document.getElementById('life-coverage').textContent = formatCurrency(lifeCoverage * ageFactor);
-            document.getElementById('critical-coverage').textContent = formatCurrency(criticalCoverage * ageFactor);
-            document.getElementById('disability-coverage').textContent = formatCurrency(disabilityCoverage * ageFactor);
+
+            // Calculate recommended coverage with more sophisticated formulas
+            const lifeCoverage = Math.round((income * 10 + debts + (dependents * 75000)) * ageFactor);
+            const criticalCoverage = Math.round((income * 2.5 + (dependents * 25000)) * ageFactor);
+            const disabilityCoverage = Math.round((income * 0.7 * 12) * ageFactor); // 70% of annual income
+
+            // Update results with formatted currency
+            document.getElementById('life-coverage').textContent = formatCurrency(lifeCoverage);
+            document.getElementById('critical-coverage').textContent = formatCurrency(criticalCoverage);
+            document.getElementById('disability-coverage').textContent = formatCurrency(disabilityCoverage);
+
+            // Show results section if hidden
+            document.querySelector('.calculator-results').style.display = 'block';
         }
 
-        // Premium Calculator
         function calculatePremium() {
+            // Get input values
             const coverageAmount = parseFloat(document.getElementById('coverage-amount').value) || 0;
             const termLength = parseInt(document.getElementById('term-length').value) || 0;
             const paymentFrequency = document.getElementById('payment-frequency').value;
 
-            // Basic premium calculation (simplified example)
-            const baseRate = 0.05; // 5% of coverage amount per year
-            const annualPremium = coverageAmount * baseRate;
-            
-            // Apply term length factor
-            const termFactor = termLength < 10 ? 1.2 : termLength < 20 ? 1.1 : 1;
-            const adjustedAnnualPremium = annualPremium * termFactor;
+            // Validate inputs
+            if (coverageAmount < 10000) {
+                alert('Coverage amount must be at least $10,000');
+                return;
+            }
 
-            // Calculate different payment frequencies
-            const monthlyPremium = adjustedAnnualPremium / 12;
-            const quarterlyPremium = adjustedAnnualPremium / 4;
-            
-            // Update results
+            if (termLength < 1 || termLength > 40) {
+                alert('Term length must be between 1 and 40 years');
+                return;
+            }
+
+            // More sophisticated premium calculation
+            const baseRate = coverageAmount * 0.001; // 0.1% of coverage amount
+            const termFactor = 1 + (termLength * 0.05); // 5% increase per year
+            const ageFactor = 1 + (Math.max(0, termLength - 10) * 0.02); // 2% increase per year over 10 years
+            const monthlyPremium = baseRate * termFactor * ageFactor;
+
+            // Calculate different payment frequencies with discounts
+            const quarterlyPremium = monthlyPremium * 3 * 0.98; // 2% discount for quarterly
+            const annualPremium = monthlyPremium * 12 * 0.95; // 5% discount for annual
+
+            // Update results with formatted currency
             document.getElementById('monthly-premium').textContent = formatCurrency(monthlyPremium);
             document.getElementById('quarterly-premium').textContent = formatCurrency(quarterlyPremium);
-            document.getElementById('annual-premium').textContent = formatCurrency(adjustedAnnualPremium);
+            document.getElementById('annual-premium').textContent = formatCurrency(annualPremium);
+
+            // Show results section if hidden
+            document.querySelector('.premium-results').style.display = 'block';
+        }
+
+        function calculateTravelInsurance() {
+            // Get input values
+            const tripType = document.getElementById('trip-type').value;
+            const destination = document.getElementById('destination').value;
+            const coverageLevel = document.getElementById('coverage-level').value;
+            const duration = parseInt(document.getElementById('trip-duration').value) || 0;
+            const travelers = parseInt(document.getElementById('travelers').value) || 0;
+            const age = parseInt(document.getElementById('traveler-age').value) || 0;
+
+            // Validate inputs
+            if (duration < 1 || duration > 365) {
+                alert('Trip duration must be between 1 and 365 days');
+                return;
+            }
+
+            if (travelers < 1 || travelers > 10) {
+                alert('Number of travelers must be between 1 and 10');
+                return;
+            }
+
+            if (age < 0 || age > 85) {
+                alert('Age must be between 0 and 85 years');
+                return;
+            }
+
+            // Base rate calculation
+            let baseRate = 0;
+            switch(destination) {
+                case 'canada':
+                    baseRate = 5;
+                    break;
+                case 'usa':
+                    baseRate = 8;
+                    break;
+                case 'caribbean':
+                    baseRate = 10;
+                    break;
+                case 'europe':
+                    baseRate = 12;
+                    break;
+                case 'asia':
+                    baseRate = 15;
+                    break;
+                case 'worldwide':
+                    baseRate = 20;
+                    break;
+            }
+
+            // Apply coverage level factor
+            const coverageFactor = coverageLevel === 'basic' ? 1 : 
+                                coverageLevel === 'standard' ? 1.5 : 2;
+
+            // Apply age factor
+            const ageFactor = age < 30 ? 1 : age < 50 ? 1.2 : age < 70 ? 1.5 : 2;
+
+            // Calculate premium
+            let premium = baseRate * duration * travelers * ageFactor * coverageFactor;
+
+            // Apply trip type factor
+            if (tripType === 'multi') {
+                premium *= 1.5;
+            } else if (tripType === 'super-visa') {
+                premium *= 2;
+            }
+
+            // Calculate coverage amounts based on level
+            const medicalCoverage = coverageLevel === 'basic' ? 50000 :
+                                  coverageLevel === 'standard' ? 100000 : 200000;
+            const cancellationCoverage = coverageLevel === 'basic' ? 2500 :
+                                      coverageLevel === 'standard' ? 5000 : 10000;
+            const baggageCoverage = coverageLevel === 'basic' ? 1000 :
+                                  coverageLevel === 'standard' ? 2000 : 3000;
+
+            // Update results
+            document.getElementById('travel-premium').textContent = formatCurrency(premium);
+            document.getElementById('medical-coverage').textContent = formatCurrency(medicalCoverage);
+            document.getElementById('cancellation-coverage').textContent = formatCurrency(cancellationCoverage);
+            document.getElementById('baggage-coverage').textContent = formatCurrency(baggageCoverage);
+
+            // Show results section
+            document.querySelector('.travel-results').style.display = 'block';
         }
 
         function formatCurrency(amount) {
@@ -619,6 +1035,45 @@
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 0
             }).format(amount);
+        }
+
+        // Add input validation and real-time updates
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add input event listeners for real-time validation
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value < 0) {
+                        this.value = 0;
+                    }
+                });
+            });
+
+            // Add form validation
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const submitBtn = this.querySelector('.submit-btn');
+                    submitBtn.classList.add('loading');
+                    
+                    // Simulate form submission (replace with actual form handling)
+                    setTimeout(() => {
+                        submitBtn.classList.remove('loading');
+                        alert('Thank you for your message! I will get back to you soon.');
+                        this.reset();
+                    }, 1500);
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger i');
+            navLinks.classList.toggle('show');
+            hamburger.classList.toggle('fa-bars');
+            hamburger.classList.toggle('fa-times');
         }
     </script>
 </body>
