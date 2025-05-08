@@ -71,46 +71,18 @@ function magneticEffect(element) {
     updatePosition();
 }
 
-// Enhanced text reveal with Apple-style timing
-function revealText(element) {
-    const text = element.textContent;
-    element.textContent = '';
-    element.style.opacity = '1';
-    
-    const words = text.split(' ');
-    words.forEach((word, wordIndex) => {
-        const wordSpan = document.createElement('span');
-        wordSpan.className = 'word';
-        wordSpan.style.display = 'inline-block';
-        wordSpan.style.opacity = '0';
-        wordSpan.style.transform = 'translateY(20px)';
-        
-        for (let i = 0; i < word.length; i++) {
-            const span = document.createElement('span');
-            span.textContent = word[i];
-            span.style.display = 'inline-block';
-            span.style.opacity = '0';
-            span.style.transform = 'translateY(20px)';
-            wordSpan.appendChild(span);
+// Intersection Observer for fade-in animations
+const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeInObserver.unobserve(entry.target);
         }
-        
-        element.appendChild(wordSpan);
-        element.appendChild(document.createTextNode(' '));
-        
-        setTimeout(() => {
-            wordSpan.style.opacity = '1';
-            wordSpan.style.transform = 'translateY(0)';
-            
-            const letters = wordSpan.querySelectorAll('span');
-            letters.forEach((letter, letterIndex) => {
-                setTimeout(() => {
-                    letter.style.opacity = '1';
-                    letter.style.transform = 'translateY(0)';
-                }, letterIndex * 30);
-            });
-        }, wordIndex * 100);
     });
-}
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
 
 // Smooth page transition effect
 function initPageTransition() {
@@ -217,8 +189,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Enhanced timeline animations with smooth reveals and 3D effect
     const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-50px) rotateY(10deg)';
+        // Set initial state
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(-100px)'; // Start from left side
+        item.style.transition = 'transform 0.6s ease-out';
+        item.style.transitionDelay = `${index * 0.2}s`;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transform = 'translateX(0)'; // Move to original position
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
         observer.observe(item);
         
         const title = item.querySelector('h3');
@@ -419,4 +407,129 @@ style.textContent = `
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Simple text reveal animation
+function revealText(element) {
+    const text = element.textContent;
+    element.textContent = '';
+    element.style.opacity = '1';
+    
+    const words = text.split(' ');
+    words.forEach((word, wordIndex) => {
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'word';
+        wordSpan.style.display = 'inline-block';
+        wordSpan.style.opacity = '0';
+        wordSpan.style.transform = 'translateY(20px)';
+        
+        for (let i = 0; i < word.length; i++) {
+            const span = document.createElement('span');
+            span.textContent = word[i];
+            span.style.display = 'inline-block';
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(20px)';
+            wordSpan.appendChild(span);
+        }
+        
+        element.appendChild(wordSpan);
+        element.appendChild(document.createTextNode(' '));
+        
+        setTimeout(() => {
+            wordSpan.style.opacity = '1';
+            wordSpan.style.transform = 'translateY(0)';
+            
+            const letters = wordSpan.querySelectorAll('span');
+            letters.forEach((letter, letterIndex) => {
+                setTimeout(() => {
+                    letter.style.opacity = '1';
+                    letter.style.transform = 'translateY(0)';
+                }, letterIndex * 15);
+            });
+        }, wordIndex * 50);
+    });
+}
+
+// Apply text reveal to hero section
+document.addEventListener('DOMContentLoaded', () => {
+    const heroTitle = document.querySelector('.hero h1');
+    const heroText = document.querySelector('.hero p');
+    
+    if (heroTitle) revealText(heroTitle);
+    if (heroText) revealText(heroText);
+});
+
+// Smooth hover transitions for buttons and cards
+document.querySelectorAll('.cta-button, .contact-btn, .expertise-card, .project-item').forEach(element => {
+    element.addEventListener('mouseenter', () => {
+        element.style.transform = 'scale(1.02)';
+        element.style.transition = 'transform 0.3s ease-out';
+    });
+    
+    element.addEventListener('mouseleave', () => {
+        element.style.transform = 'scale(1)';
+    });
+});
+
+// Staggered animation for skill items
+const skillItems = document.querySelectorAll('.skill-item');
+skillItems.forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.1}s`;
+});
+
+// Smooth navigation menu transitions
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        link.style.transform = 'translateY(-2px)';
+        link.style.transition = 'transform 0.3s ease-out';
+    });
+    
+    link.addEventListener('mouseleave', () => {
+        link.style.transform = 'translateY(0)';
+    });
+});
+
+// Loading screen animation
+window.addEventListener('load', () => {
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.transition = 'opacity 0.5s ease-out';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500);
+    }
+});
+
+// Smooth dark mode transition
+const darkModeToggle = document.getElementById('darkModeToggle');
+if (darkModeToggle) {
+    document.body.style.transition = 'background-color 0.3s ease-out, color 0.3s ease-out';
+}
+
+// Stats counter animation
+const stats = document.querySelectorAll('.stat-number');
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.textContent);
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    entry.target.textContent = target + (entry.target.textContent.includes('+') ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    entry.target.textContent = Math.floor(current) + (entry.target.textContent.includes('+') ? '+' : '');
+                }
+            }, 20);
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.5
+});
+
+stats.forEach(stat => statsObserver.observe(stat)); 

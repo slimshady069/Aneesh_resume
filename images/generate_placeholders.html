@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Image Placeholders</title>
+    <style>
+        .placeholder {
+            width: 300px;
+            height: 200px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .hero-placeholder {
+            width: 1200px;
+            height: 400px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="placeholders"></div>
+    <script>
+        const images = [
+            { name: 'testimonial-1', type: 'testimonial' },
+            { name: 'testimonial-2', type: 'testimonial' },
+            { name: 'testimonial-3', type: 'testimonial' },
+            { name: 'insurance-hero', type: 'hero' }
+        ];
+
+        const container = document.getElementById('placeholders');
+        images.forEach(image => {
+            const div = document.createElement('div');
+            div.className = image.type === 'hero' ? 'hero-placeholder' : 'placeholder';
+            div.textContent = image.name.toUpperCase();
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html> 

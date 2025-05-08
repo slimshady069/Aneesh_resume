@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Provider Placeholders</title>
+    <style>
+        .placeholder {
+            width: 200px;
+            height: 100px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="placeholders"></div>
+    <script>
+        const providers = [
+            'manulife',
+            'sunlife',
+            'desjardins',
+            'equitable',
+            'empire',
+            'ia'
+        ];
+
+        const container = document.getElementById('placeholders');
+        providers.forEach(provider => {
+            const div = document.createElement('div');
+            div.className = 'placeholder';
+            div.textContent = provider.toUpperCase();
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html> 
