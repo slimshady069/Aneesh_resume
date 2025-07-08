@@ -395,3 +395,56 @@ filterButtons.forEach(button => {
         });
     });
 }); 
+
+// FAQ Toggle Function
+function toggleFAQ(element) {
+    const faqItem = element.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = element.querySelector('i');
+    
+    // Close all other FAQ items
+    const allFaqItems = document.querySelectorAll('.faq-item');
+    allFaqItems.forEach(item => {
+        if (item !== faqItem) {
+            item.classList.remove('active');
+            const otherAnswer = item.querySelector('.faq-answer');
+            const otherIcon = item.querySelector('.faq-question i');
+            if (otherAnswer) {
+                otherAnswer.style.maxHeight = '0px';
+            }
+            if (otherIcon) {
+                otherIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+    });
+    
+    // Toggle current FAQ item
+    faqItem.classList.toggle('active');
+    
+    if (faqItem.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        answer.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(0deg)';
+    }
+}
+
+// Quote form functionality
+function scrollToQuoteForm() {
+    const quoteForm = document.getElementById('quote-form');
+    if (quoteForm) {
+        quoteForm.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Add click event listeners to quote buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const quoteButtons = document.querySelectorAll('.quote-btn');
+    quoteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            scrollToQuoteForm();
+        });
+    });
+}); 
