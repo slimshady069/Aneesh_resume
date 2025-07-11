@@ -1,0 +1,16 @@
+{
+  "name": "aneesh-resume",
+  "compatibility_date": "2025-07-11",
+  "assets": {
+    "directory": ".",
+    "include": [
+      "*.html",
+      "*.css",
+      "*.js",
+      "*.ico",
+      "*.txt",
+      "*.xml",
+      "images/**/*"
+    ]
+  }
+} 
